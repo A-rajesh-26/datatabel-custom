@@ -48,23 +48,20 @@ on:
         fetch-depth: 0
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@<action version> # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
-        with:
-          projectBaseDir: src/customDatatableComp
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@<action version> # Ex: v2.1.0, See the latest version at https://github.com/marketplace/actions/official-sonarqube-scan
         env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+        -Dsonar.projectKey: A-rajesh-26_datatabel-custom_29e7b8f4-8d69-4e9b-bf2a-8de5258e50c4
         with:
           # Additional arguments for the sonarcloud scanner
           args:
             # Unique key of your project. You can find it in SonarQube > [my project] > Project Information (top-right menu)
             # mandatory
-            #-Dsonar.projectKey=A-rajesh-26_datatabel-custom_29e7b8f4-8d69-4e9b-bf2a-8de5258e50c4
+            #-Dsonar.projectKey = A-rajesh-26_datatabel-custom_29e7b8f4-8d69-4e9b-bf2a-8de5258e50c4
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources= # optional, default is project base directory
             # When you need the analysis to take place in a directory other than the one from which it was launched
-            #-Dsonar.projectBaseDir= # optional, default is .
+            #-Dsonar.projectBaseDir = src/customDatatableComp # optional, default is .
             # Comma-separated paths to directories containing test source files.
             #-Dsonar.tests= # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
             # Adds more detail to both client and server-side analysis logs, activating DEBUG mode for the scanner, and adding client-side environment variables and system properties to the server-side log of analysis report processing.
